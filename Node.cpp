@@ -15,6 +15,7 @@ Node::~Node() {
         delete pNext[i];
         pNext[i]=nullptr;
     }
+    pParent= nullptr;
 }
 
 int Node::getM_iNum() const {

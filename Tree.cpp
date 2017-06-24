@@ -59,3 +59,14 @@ Node *Tree::_search(Node *pNode,string name){
 Node *Tree::search(string name){
   return _search(m_pRoot,name);
 }
+
+void Tree::deleteNode(Node* &pNode) {
+    Node *currentNode=pNode->pParent;
+    int num=pNode->getM_iNum();
+    for (int i = 0; i <num; ++i) {
+        deleteNode(pNode->pNext[i]);
+    }
+    delete pNode;
+    pNode=nullptr;
+    currentNode->setM_iNum(currentNode->getM_iNum()-1);
+}

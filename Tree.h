@@ -15,7 +15,8 @@ public:
 	void insert();
   	Node *search(string name);
   	Node *_search(Node *pNode,string name);
-	void
+	void modity(Node *pNode);
+    void deleteNode(Node* &pNode);
 private:
     Node *m_pRoot;
 };
