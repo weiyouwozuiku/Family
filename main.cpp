@@ -1,9 +1,11 @@
 #include "Tree.h"
 int main() {
+	cout << "Hello, Family!" << endl;
     Tree tmp;
     tmp.insert();
-	Node* temp= tmp.search("e");
+	Node* temp= tmp.search("c");
     tmp.deleteNode(temp);
-    std::cout << "Hello, World!" << std::endl;
+	tmp.print();
+    
     return 0;
 }

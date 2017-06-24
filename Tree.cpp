@@ -4,6 +4,7 @@
 
 #include "Tree.h"
 
+
 Tree::Tree(){
     m_pRoot= nullptr;
 }
@@ -66,7 +67,58 @@ void Tree::deleteNode(Node* &pNode) {
     for (int i = 0; i <num; ++i) {
         deleteNode(pNode->pNext[i]);
     }
-    delete pNode;
-    pNode=nullptr;
+	pNode->setM_strName("");
     currentNode->setM_iNum(currentNode->getM_iNum()-1);
+}
+
+void Tree::modity(){
+	cout<<"Please input the name what you want to modity."<<endl;
+	string name;
+	cin>>name;
+	Node *pNode=search(name);
+	cout<<"Secondinput the follow number to choose.";
+	cout<<"1.name;2.gender:";
+	string newname;
+	string newgender;
+	int tmp;
+	cin>>tmp;
+	switch(tmp){
+	case 1:
+		cout<<"Please input a new name:";
+		cin>>newname;
+		pNode->setM_strName(newname);
+		break;
+	case 2:
+		cout<<"Please input the gender:";
+		cin>>newgender;
+		pNode->setM_Gender(newgender);
+		break;
+	default:
+		cout<<"error!bye";
+		break;
+	}
+}
+
+void Tree::_print(Node *pNode){
+	Node* currentNode=pNode;
+	queue<Node*> q;
+	q.push(pNode);
+	while(!q.empty()){
+		Node* now=q.front();
+		q.pop();
+		cout<<now->getM_strName();
+		for(int i=0;i<MAX;i++){
+			if(now->pNext[i]==nullptr||now->pNext[i]->getM_strName()=="")
+				continue;
+			else{
+				q.push(now->pNext[i]);
+				//cout<<now->pNext[i]->getM_strName();
+			}
+		}
+	}
+
+}
+
+void Tree::print(){
+	_print(m_pRoot);
 }

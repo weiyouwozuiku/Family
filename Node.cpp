@@ -4,6 +4,7 @@
 
 #include "Node.h"
 
+
 Node::Node():   m_strName(" "),m_Gender("male"),m_iNum(0) {
     for(int i=0;i<MAX;i++)
         pNext[i]= nullptr;

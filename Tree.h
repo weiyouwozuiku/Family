@@ -6,6 +6,8 @@
 #define FAMILY_TREE_H
 
 #include "Node.h"
+#include <queue>
+using std::queue;
 
 class Tree {
 public:
@@ -15,8 +17,10 @@ public:
 	void insert();
   	Node *search(string name);
   	Node *_search(Node *pNode,string name);
-	void modity(Node *pNode);
+	void modity();
     void deleteNode(Node* &pNode);
+	void print();
+	void _print(Node *pNode);
 private:
     Node *m_pRoot;
 };
