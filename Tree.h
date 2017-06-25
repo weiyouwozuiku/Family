@@ -11,14 +11,14 @@ using std::queue;
 
 class Tree {
 public:
-    Tree();
-    virtual ~Tree();
+  Tree();
+  virtual ~Tree();
 	void _insert(Node* &member,Node *parent);
 	void insert();
-  	Node *search(string name);
-  	Node *_search(Node *pNode,string name);
+  Node *search(string name);
+  Node *_search(Node *pNode,string name);
 	void modity();
-    void deleteNode(Node* &pNode);
+  void deleteNode(Node* &pNode);
 	void print();
 	void _print(Node *pNode);
 private:
