@@ -1,14 +1,16 @@
 #include "Tree.h"
 #include <cstring>
+#include <stdio.h>
 #include <stdlib.h>
 void init(Tree* &pNode){
 	menu:
 		{
-			cout << "\t\tHello, Family!If you want to quit,please input \\q" << endl;
-			char flag[4];
-			scanf("%s",flag);
 			system("cls");
-			if(!strcmp(flag,"\q")){
+			cout << "\t\tHello, Family!If you want to quit,please input q" << endl;
+			char flag;
+			scanf("%c",&flag);
+			system("cls");
+			if(flag!='q'){
 			cout<<"\t===========================================================\n";
 			cout<<"\t=              Pretend to be a family tree                =\n";
 			cout<<"\t=                                                         =\n";
@@ -30,7 +32,7 @@ void init(Tree* &pNode){
 			cout<<"\t===========================================================\n";
 			char choose;
 			string name;
-			Node *currentNode=nullptr,*node=nullptr;
+			Node *currentNode=nullptr;
 			cin>>choose;
 			switch(choose){
 				case '1':
@@ -41,13 +43,17 @@ void init(Tree* &pNode){
 				}
 				case '2':
 				{
+					system("cls");
 					cout<<"Please input the name of the member:";
 					cin>>name;
-					pNode->search(name);
+					pNode->_print(pNode->search(name));
+					fflush(stdin);
+					getchar();
 					break;
 				}
 				case '3':
 				{
+					system("cls");
 					cout<<"Please input the name of the member:";
 					cin>>name;
 					currentNode=pNode->search(name);
@@ -56,20 +62,26 @@ void init(Tree* &pNode){
 				}
 				case '4':
 				{
+					system("cls");
 					cout<<"Please input the name of the member's parent:";
 					cin>>name;
 					currentNode=pNode->search(name);
-					pNode->_insert(node,currentNode);
+					pNode->addNode(currentNode);
 					break;
 				}
 				case '5':
 				{
+					system("cls");
 					pNode->modity();
 					break;
 				}
 				case '6':
 				{
+					system("cls");
 					pNode->print();
+					cout<<endl;
+					fflush(stdin);
+					getchar();
 					break;
 				}
 				default:

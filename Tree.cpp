@@ -62,6 +62,11 @@ Node *Tree::search(string name){
 }
 
 void Tree::deleteNode(Node* &pNode) {
+	if (pNode->getM_iNum()==0)
+	{
+		cout<<"empty";
+		return;
+	}
     Node *currentNode=pNode->pParent;
     int num=pNode->getM_iNum();
     for (int i = 0; i <num; ++i) {
@@ -106,7 +111,7 @@ void Tree::_print(Node *pNode){
 	while(!q.empty()){
 		Node* now=q.front();
 		q.pop();
-		cout<<now->getM_strName();
+		cout<<now->getM_strName()<<'\t';
 		for(int i=0;i<MAX;i++){
 			if(now->pNext[i]==nullptr||now->pNext[i]->getM_strName()=="")
 				continue;
@@ -117,6 +122,17 @@ void Tree::_print(Node *pNode){
 		}
 	}
 
+}
+
+void Tree::addNode(Node *pNode){
+	if(pNode->getM_iNum()==20){
+		cout<<"Full";
+		return;
+	}
+	Node* tmp=new Node;
+	_insert(tmp,nullptr);
+	tmp->pParent=pNode;
+	pNode->setM_iNum(pNode->getM_iNum()+1);
 }
 
 void Tree::print(){
