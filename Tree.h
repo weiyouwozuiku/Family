@@ -21,10 +21,9 @@ public:
   void deleteNode(Node* &pNode);
 	void print();
 	void _print(Node *pNode);
-	void addNode(Node *pNode);
+	void addNode(Node* &pNode);
 private:
     Node *m_pRoot;
 };
-
 
 #endif //FAMILY_TREE_H

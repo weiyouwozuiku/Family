@@ -4,7 +4,6 @@
 
 #include "Tree.h"
 
-
 Tree::Tree(){
     m_pRoot= nullptr;
 }
@@ -49,7 +48,7 @@ Node *Tree::_search(Node *pNode,string name){
 	  if (currentNode->getM_strName()==name) {
       return currentNode;
     }
-	  for (int i = 0; i < currentNode->getM_iNum(); i++) {
+	  for (int i = 0; i < MAX; i++) {
       if(_search(currentNode->pNext[i],name)!=nullptr)
         return _search(currentNode->pNext[i],name);
     }
@@ -111,7 +110,7 @@ void Tree::_print(Node *pNode){
 	while(!q.empty()){
 		Node* now=q.front();
 		q.pop();
-		cout<<now->getM_strName()<<'\t';
+		cout<<now->getM_strName()<<' '<<now->getM_Gender()<<'\t';
 		for(int i=0;i<MAX;i++){
 			if(now->pNext[i]==nullptr||now->pNext[i]->getM_strName()=="")
 				continue;
@@ -124,17 +123,18 @@ void Tree::_print(Node *pNode){
 
 }
 
-void Tree::addNode(Node *pNode){
-	if(pNode->getM_iNum()==20){
+void Tree::addNode(Node* &pNode){
+	if(pNode->getM_iNum()==20){  
 		cout<<"Full";
 		return;
 	}
-	Node* tmp=new Node;
-	_insert(tmp,nullptr);
-	tmp->pParent=pNode;
+	Node* tmp=nullptr;
+	_insert(tmp,pNode);
+	pNode->pNext[pNode->getM_iNum()]=tmp;
 	pNode->setM_iNum(pNode->getM_iNum()+1);
 }
 
 void Tree::print(){
+	cout<<"Output the information of juniors and member£º\n";
 	_print(m_pRoot);
 }

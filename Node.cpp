@@ -23,6 +23,7 @@ int Node::getM_iNum() const {
     return m_iNum;
 }
 
+
 void Node::setM_iNum(int m_iNum) {
     Node::m_iNum = m_iNum;
 }
@@ -30,6 +31,7 @@ void Node::setM_iNum(int m_iNum) {
 const string &Node::getM_strName() const {
     return m_strName;
 }
+
 
 void Node::setM_strName(const string &m_strName) {
     Node::m_strName = m_strName;

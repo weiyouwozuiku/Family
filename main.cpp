@@ -98,5 +98,6 @@ void init(Tree* &pNode){
 int main() {
 	Tree *tmp=new Tree;
 	init(tmp);
+	delete tmp;
     return 0;
 }

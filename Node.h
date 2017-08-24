@@ -41,5 +41,4 @@ public:
     Node *pParent;
 };
 
-
 #endif //FAMILY_NODE_H
